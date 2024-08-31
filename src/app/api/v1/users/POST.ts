@@ -22,12 +22,12 @@ const POST = async (req: Request) => {
                 `;
 
     const hashedPassword = await bcrypt.hash(password as string, 10)
-    const [rows] = await db.execute(query, [email, username, hashedPassword, photo]);
+    await db.execute(query, [email, username, hashedPassword, photo]);
     db.release();
 
-    return Response.json({ rows }, { status: 201 });
-  } catch (error) {
-
+    return Response.json({ error: false, msg: "new user added success" }, { status: 201 });
+  } catch (error: any) {
+    return Response.json({ error: true, msg: error.message }, { status: 500 });
   }
 }
 

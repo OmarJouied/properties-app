@@ -4,9 +4,10 @@ const GET = async () => {
   try {
     const db = await pool.getConnection();
     const query = "SELECT * FROM users";
-    const [rows] = await db.execute(query);
+    const [users] = await db.execute(query);
+    db.release();
 
-    return Response.json({ users: rows }, { status: 200 });
+    return Response.json({ users }, { status: 200 });
   } catch (error: any) {
     return Response.json({ error: true, msg: error.message }, { status: 500 });
   }

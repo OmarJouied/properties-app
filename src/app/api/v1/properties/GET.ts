@@ -1,15 +1,18 @@
 import pool from "@/lib/db";
 
-const GET = async () => {
+const GET = async (req: Request) => {
   try {
+    const { searchParams } = new URL(req.url);
+    const propertyId = searchParams.get("property_id");
+
     const db = await pool.getConnection();
-    const query = "SELECT * FROM properties";
-    const [rows] = await db.execute(query);
+    const query = `SELECT * FROM properties ${propertyId ? "WHERE PropertyId=?" : ""}`;
+    const [properties] = await db.execute(query, [propertyId]);
     db.release();
 
-    return Response.json({ rows }, { status: 200 })
-  } catch (error) {
-    return Response.json({ error }, { status: 500 })
+    return Response.json({ properties }, { status: 200 })
+  } catch (error: any) {
+    return Response.json({ error: true, msg: error.message }, { status: 500 })
   }
 }
 
