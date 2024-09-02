@@ -2,7 +2,13 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
-First, run the development server:
+First, install dependencies:
+
+```bash
+npm install
+```
+
+Then, run the development server:
 
 ```bash
 npm run dev
@@ -34,3 +40,29 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+
+
+## Pages
+
+/ shows us the properties
+/tenants shows us the tenants
+/signin to log in page
+/signup to register page
+
+## Api EndPoints
+
+### /api/v1/users
+GET Method: get all users
+POST Method: create user
+
+### /api/v1/properties
+GET Method: get all properties
+POST Method: create propertie
+PATCH Method: update propertie
+DELETE Method: delete propertie
+
+### /api/v1/tenants
+GET Method: get all tenants
+POST Method: create tenant
+PATCH Method: update tenant
+DELETE Method: delete tenant

@@ -7,9 +7,7 @@ const GET = async (req: Request) => {
     const emptyProperty = searchParams.get("emptyProperty");
 
     const db = await pool.getConnection();
-    const query = //emptyProperty ?
-      // `SELECT p.PropertyId, p.Name FROM properties AS p INNER JOIN tenants AS t ON p.PropertyId` :
-      `SELECT * FROM properties ${propertyId ? "WHERE PropertyId=?" : ""}`;
+    const query = `SELECT * FROM properties ${propertyId ? "WHERE PropertyId=?" : ""}`;
 
     const [properties] = await db.execute(query, [propertyId]);
     db.release();
