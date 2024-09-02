@@ -2,14 +2,14 @@ import pool from "@/lib/db";
 
 const POST = async (req: Request) => {
   try {
-    const { name, address, type, unitsNumber, rentalCost } = await req.json();
+    const { Name, Address, Type, UnitsNumber, RentalCost } = await req.json();
 
     const db = await pool.getConnection();
     const query = `
       INSERT INTO properties (Name, Address, Type, UnitsNumber, RentalCost)
       VALUES (?, ?, ?, ?, ?)
     `;
-    await db.execute(query, [name, address, type, unitsNumber, rentalCost]);
+    await db.execute(query, [Name, Address, Type, UnitsNumber, RentalCost]);
     db.release();
 
     return Response.json({ error: false, msg: "new property created success" }, { status: 201 });

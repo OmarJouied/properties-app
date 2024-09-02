@@ -2,11 +2,11 @@ import pool from "@/lib/db";
 
 const DELETE = async (req: Request) => {
   try {
-    const { propertyId } = await req.json();
+    const { PropertyId } = await req.json();
 
     const db = await pool.getConnection();
     const query = "DELETE FROM properties WHERE PropertyId=?";
-    await db.execute(query, [propertyId]);
+    await db.execute(query, [PropertyId]);
     db.release();
 
     return Response.json({ error: false, msg: "deleted success" });

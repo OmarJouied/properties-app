@@ -4,15 +4,15 @@ const PATCH = async (req: Request) => {
   try {
     const formData = await req.json();
 
-    if (!formData.tenant_id) return Response.json({ error: true, msg: "tenant_id should be exist" }, { status: 500 });
+    if (!formData.TenantId) return Response.json({ error: true, msg: "TenantId should be exist" }, { status: 500 });
 
     const fields = Object.entries(formData).map(field => `${field[0].toUpperCase()}=${field[1]}`);
 
     const db = await pool.getConnection();
     const query = `
-      UPDATE properties
+      UPDATE tenants
       SET ${fields.join(",")}
-      WHERE TenantId=${formData.tenant_id}
+      WHERE TenantId=${formData.TenantId}
     `;
     await db.execute(query);
     db.release();

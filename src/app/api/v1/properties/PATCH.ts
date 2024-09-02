@@ -4,7 +4,7 @@ const PATCH = async (req: Request) => {
   try {
     const formData = await req.json();
 
-    if (!formData.property_id) return Response.json({ error: true, msg: "property_id should be exist" }, { status: 500 });
+    if (!formData.PropertyId) return Response.json({ error: true, msg: "PropertyId should be exist" }, { status: 500 });
 
     const fields = Object.entries(formData).map(field => `${field[0].toUpperCase()}=${field[1]}`);
 
@@ -12,7 +12,7 @@ const PATCH = async (req: Request) => {
     const query = `
       UPDATE properties
       SET ${fields.join(",")}
-      WHERE PropertyId=${formData.property_id}
+      WHERE PropertyId=${formData.PropertyId}
     `;
     await db.execute(query);
     db.release();
