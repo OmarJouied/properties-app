@@ -45,32 +45,47 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 ## Pages
 
 / shows us the properties
+
 /tenants shows us the tenants
+
 /signin to log in page
+
 /signup to register page
 
 ## Api EndPoints
 
 ### /api/v1/users
 GET Method: get all users
+
 POST Method: create user
 
 ### /api/v1/properties
 GET Method: get all properties
+
 POST Method: create propertie
+
 PATCH Method: update propertie
+
 DELETE Method: delete propertie
 
 ### /api/v1/tenants
 GET Method: get all tenants
+
 POST Method: create tenant
+
 PATCH Method: update tenant
+
 DELETE Method: delete tenant
 
 ## ENV Varaible
 MYSQL_HOST: database host
+
 MYSQL_PORT: database port
+
 MYSQL_DATABASE: database name
+
 MYSQL_USER: database user
+
 MYSQL_PASSWORD: database password
+
 NEXTAUTH_SECRET: for authentication
