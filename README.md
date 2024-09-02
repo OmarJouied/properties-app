@@ -66,3 +66,11 @@ GET Method: get all tenants
 POST Method: create tenant
 PATCH Method: update tenant
 DELETE Method: delete tenant
+
+## ENV Varaible
+MYSQL_HOST: database host
+MYSQL_PORT: database port
+MYSQL_DATABASE: database name
+MYSQL_USER: database user
+MYSQL_PASSWORD: database password
+NEXTAUTH_SECRET: for authentication
